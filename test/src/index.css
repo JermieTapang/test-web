@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .animate-in { animation-fill-mode: both; }
+  .slide-in-from-bottom { animation-name: slideInFromBottom; }
+}
+
+/* --- CORE ANIMATIONS --- */
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(-1rem); }
+}
+
+@keyframes vaultReveal {
+  0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.2); }
+}
+
+/* --- THEME GLOWS --- */
+@keyframes pulse-blue-glow-container {
+  0%, 100% { box-shadow: 0 0 15px rgba(96, 165, 250, 0.1); border-color: rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(96, 165, 250, 0.4); border-color: rgba(96, 165, 250, 0.4); }
+}
+
+@keyframes pulse-rose-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(251, 113, 133, 0.1); border-color: rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(251, 113, 133, 0.4); border-color: rgba(251, 113, 133, 0.4); }
+}
+
+@keyframes pulse-emerald-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(52, 211, 153, 0.1); border-color: rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(52, 211, 153, 0.4); border-color: rgba(52, 211, 153, 0.4); }
+}
+
+@keyframes pulse-amber-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.2); border-color: rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.6); border-color: rgba(251, 191, 36, 0.4); }
+}
+
+/* --- CYBER CLASSES --- */
+:root {
+  --neon-green: #ccff00;
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+}
+
+.animate-pulse-blue-container { animation: pulse-blue-glow-container 4s ease-in-out infinite; }
+.animate-pulse-rose { animation: pulse-rose-glow 4s ease-in-out infinite; }
+.animate-pulse-emerald { animation: pulse-emerald-glow 4s ease-in-out infinite; }
+.animate-pulse-amber { animation: pulse-amber-glow 4s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+.bg-telemetry {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  line-height: 1.2;
+  color: var(--neon-green);
+  opacity: 0.15;
+  pointer-events: none;
+  position: absolute;
+  white-space: pre;
+  z-index: 5;
+}
