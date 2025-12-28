@@ -11,5 +11,6 @@ export default defineConfig({
       },
     }),
     tailwindcss(),
+    base: process.env.TEST_NAME || "/test-web",
   ],
 })
